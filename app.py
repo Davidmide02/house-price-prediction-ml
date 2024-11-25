@@ -23,7 +23,8 @@ def prediction(details):
     # X_val = dv.
 
 st.title("House Sale prediction model")
-col1, col2 = st.columns(2)
+col1, col2 , col3= st.columns(3)
+
 with col1:
 
 # 1. MSSubClass
@@ -38,9 +39,9 @@ with col1:
     # 4. LotConfig
     lot_config = st.selectbox("LotConfig", ["Inside", "Corner", "CulDSac", "FR2", "FR3"])
 
+with col2:
     # 5. BldgType
     bldg_type = st.selectbox("BldgType: Type of dwelling", ["1Fam", "2fmCon", "Duplex", "TwnhsE", "Twnhs"])
-with col2:
     # 6. OverallCond
     overall_cond = st.slider("OverallCond:  condition of the house", min_value=1, max_value=10, step=1)
 
@@ -51,9 +52,8 @@ with col2:
     year_remod_add = st.number_input("YearRemodAdd: Remodel date", min_value=1800, max_value=2024, step=1)
 
     # 9. Exterior1st[]
-#     'VinylSd-' 'MetalSd-' 'Wd Sdng-' 'HdBoard-' 'BrkFace-' 'WdShing-' 'CemntBd-'
-#  'Plywood-' 'AsbShng-' 'Stucco-' 'BrkComm-' 'AsphShn-' 'Stone' 'ImStucc'
-#  'CBlock
+
+with col3:
     exterior_1st = st.selectbox("Exterior1st: exterior covering", ["AsbShng", "BrkComm", "CemntBd", "HdBoard", "MetalSd", "Plywood", "Stucco", "VinylSd", "Wd Sdng", "WdShing", "BrkFace", "AsphShn", "Stone", "ImStucc", "CBlock"])
 
     # 10. BsmtFinSF2
@@ -72,23 +72,10 @@ if st.button("Submit"):
        
         input_data = { "MSSubClass": ms_subclass, "MSZoning": ms_zoning, "LotArea": lot_area, "LotConfig": lot_config, "BldgType": bldg_type, "OverallCond": overall_cond, "YearBuilt": year_built, "YearRemodAdd": year_remod_add, "Exterior1st": exterior_1st, "BsmtFinSF2": bsmt_fin_sf2, "TotalBsmtSF": total_bsmt_sf, }
         result = prediction(details = input_data)
+        
+        
+        if isinstance(result, str): st.error(result) 
+        else: st.success(f'The estimated price of this property is ${round(result, 2):,.2f} dollars.')
 
-        st.write(f'The price of this property is extimated to be {result}')
+        # st.write(f'The price of this property is extimated to be {round(result,2)}')
     
-
-
-
-
-
-# Displaying the input values
-# st.write("### Input Summary")
-# st.write(f"**MSSubClass:** {ms_subclass}")
-# st.write(f"**MSZoning:** {ms_zoning}"[])
-# st.write(f"**LotArea:** {lot_area}")
-# st.write(f"**LotConfig:** {lot_config}")
-# st.write(f"**BldgType:** {bldg_type}")
-# st.write(f"**OverallCond:** {overall_cond}")
-# st.write(f"**YearBuilt:** {year_built}")
-# st.write(f"**YearRemodAdd:** {year_remod_add}")
-# st.write(f"**Exterior1st:** {exterior_1st}")
-# st.write(f"**BsmtFinSF2:** {bsmt_fin_sf2}")
