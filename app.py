@@ -1,22 +1,22 @@
 import streamlit as st
-
 import pickle as pk
 # model_svm.bin
 # model_linear.bin
 # model\model_svm.bin
-with open("../model/model_svm.bin", "rb") as f_in:
+with open("./model/model_svm.bin", "rb") as f_in:
     dv, model = pk.load(f_in)
     
 def prediction(details):
     if not isinstance(details, dict):
-        print("invalid")
-        return
-    print(details)
+        
+        return f"parameters must be in dictionary format"
+   
     X_val = dv.transform(details)
-    print(X_val)
     try:
         price = model.predict(X_val) 
-        return price
+       
+        
+        return round(price[0],2)
     except Exception as e:
         return "Error processing this request please try again"
     
@@ -75,8 +75,9 @@ if st.button("Submit"):
         result = prediction(details = input_data)
         
         
-        if isinstance(result, str): st.error(result) 
-        else: st.success(f'The estimated price of this property is ${round(result, 2):,.2f} dollars.')
+        
+        if isinstance(result, str): st.error("Error occured") 
+        else: st.success(f'The estimated price of this property is ${result:,.2f} dollars.')
 
-        # st.write(f'The price of this property is extimated to be {round(result,2)}')
+      
     
