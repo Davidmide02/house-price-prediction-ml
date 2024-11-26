@@ -3,7 +3,8 @@ import streamlit as st
 import pickle as pk
 # model_svm.bin
 # model_linear.bin
-with open("model_svm.bin", "rb") as f_in:
+# model\model_svm.bin
+with open("../model/model_svm.bin", "rb") as f_in:
     dv, model = pk.load(f_in)
     
 def prediction(details):
