@@ -65,7 +65,7 @@ with col3:
 
 
 if st.button("Submit"):
-    st.write("You click me 😂😂")
+    
     # validation
     if not ms_subclass or not lot_area or not overall_cond or not year_built or not year_remod_add or not bsmt_fin_sf2:
         st.warning("All fields must be filled out before submitting.")
