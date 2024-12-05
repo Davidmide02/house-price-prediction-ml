@@ -34,13 +34,13 @@ with col1:
     ms_subclass = st.number_input("MSSubClass:the type of dwelling", min_value=1, max_value=200, step=1)
 
     # 2. MSZoning
-    ms_zoning = st.selectbox("MSZoning:general zoning classification", ["RL", "RM", "C (all)", "FV", "RH"])
+    ms_zoning = st.selectbox("MSZoning:(general zoning classification)", ["RL", "RM", "C (all)", "FV", "RH"])
 
     # 3. LotArea
-    lot_area = st.number_input("LotArea (sq ft): Lot size", min_value=0.0, step=1.0)
+    lot_area = st.number_input("LotArea (Lot Size in Square Feet): Lot size", min_value=0.0, step=1.0)
 
     # 4. LotConfig
-    lot_config = st.selectbox("LotConfig", ["Inside", "Corner", "CulDSac", "FR2", "FR3"])
+    lot_config = st.selectbox("LotConfig (Configuration of the Lot)", ["Inside", "Corner", "CulDSac", "FR2", "FR3"])
 
 with col2:
     # 5. BldgType
