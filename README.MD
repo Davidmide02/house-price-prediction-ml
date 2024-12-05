@@ -2,7 +2,7 @@
 
 Author : Adenusi David
 
-![House](https://images.app.goo.gl/nw1Di6nS4mMuJ3Bi6 "a house")
+![House](./assests/house.jpeg "a house")
 
 ### Problem description:
 
