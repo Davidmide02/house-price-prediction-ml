@@ -8,7 +8,7 @@
 # %%
 # install the packages needed
 
-pip install pandas numpy scikit-learn matplotlib
+
 
 # %%
 # import lib
@@ -329,11 +329,11 @@ with open("model_linear.bin", "rb") as f_in:
     dv, model = pk.load(f_in)
 
 # %%
-pip freeze > requirements.txt
+
 
 # %%
 import streamlit
-!streamlit --version
+
 
 # %%
 dv
@@ -342,7 +342,7 @@ dv
 model
 
 # %%
-pip install streamlit
+
 
 # %%
 
