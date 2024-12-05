@@ -12,8 +12,10 @@ def prediction(details):
         return f"parameters must be in dictionary format"
    
     X_val = dv.transform(details)
+    print(details)
     try:
         price = model.predict(X_val) 
+        print(price)
        
         
         return round(price[0],2)
