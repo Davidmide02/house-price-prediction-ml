@@ -29,19 +29,19 @@ I made a [video](./assests/demo.mp4) of local deployment with docker and using s
 
 It has 2919 entries
 
-1 Id To count the records.
-2 MSSubClass Identifies the type of dwelling involved in the sale.
-3 MSZoning Identifies the general zoning classification of the sale.
-4 LotArea Lot size in square feet.
-5 LotConfig Configuration of the lot
-6 BldgType Type of dwelling
-7 OverallCond Rates the overall condition of the house
-8 YearBuilt Original construction year
-9 YearRemodAdd Remodel date (same as construction date if no remodeling or additions).
-10 Exterior1st Exterior covering on house
-11 BsmtFinSF2 Type 2 finished square feet.
-12 TotalBsmtSF Total square feet of basement area
-13 SalePrice To be predicted
+1. Id To count the records.
+2. MSSubClass Identifies the type of dwelling involved in the sale.
+3. MSZoning Identifies the general zoning classification of the sale.
+4. LotArea Lot size in square feet.
+5. LotConfig Configuration of the lot
+6. BldgType Type of dwelling
+7. OverallCond Rates the overall condition of the house
+8. YearBuilt Original construction year
+9. YearRemodAdd Remodel date (same as construction date if no remodeling or additions).
+10. Exterior1st Exterior covering on house
+11. BsmtFinSF2 Type 2 finished square feet.
+12. TotalBsmtSF Total square feet of basement area
+13. SalePrice To be predicted
 
 ### EDA
 
@@ -59,3 +59,33 @@ We'll drop the missing values as it have no signigicant effect on our model
 
 ## Model training
 I used a Logistic Regression model, a Decision Tree and SVM model. I used Mean squared percentage error (MSPE) to evaluate the models.
+
+
+## Reproducibility 
+
+To start this service locally you can there two ways:
+1. Clone the repository to your locally, run this on your terminal
+
+```
+git clone https://github.com/Davidmide02/house-price-prediction-ml.git
+
+```
+3. Activate the virtual environment (make sure you have one alread)
+
+4. Install the dependencies 
+
+```
+pip install -r requirements.txt
+```
+
+5. Dockerfile
+Buils the docker image and run it locally
+
+6. Streamlit 
+
+Run :
+```
+python -m streamlit app.py
+```
+
+This will start the service running locally
